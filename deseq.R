@@ -2,10 +2,10 @@
 library(DESeq2)
 
 # Import count data
-countMatrix <- read.table("C:/Users/lamid/OneDrive/Desktop/vcf_files/transposed_data.csv", header = TRUE, row.names = TRUE, sep = ",")
+countMatrix <- read.table("C:/Users/railuri/OneDrive/Desktop/vcf_files/transposed_data.csv", header = TRUE, row.names = TRUE, sep = ",")
 countMatrix <- round(apply(countMatrix,2,as.numeric))
 # Create metadata table with unique row names
-metadata <- read.table("C:/Users/lamid/OneDrive/Desktop/vcf_files/metadata.txt", header = TRUE, row.names=NULL, sep = "\t")
+metadata <- read.table("C:/Users/railuri/OneDrive/Desktop/vcf_files/metadata.txt", header = TRUE, row.names=NULL, sep = "\t")
 
 # Step 2: Create DESeq2 object
 dds <- DESeqDataSetFromMatrix(countData = countMatrix, colData = DataFrame(metadata$sample), design = ~ metadata$condition)
